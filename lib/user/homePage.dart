@@ -95,87 +95,89 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-              Container(
-                padding: EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        _keyDrawer.currentState?.openEndDrawer();
-                      },
-                        child: Icon(Icons.menu,size: 40, color: itemColor,)),
-                    SizedBox(width: 5,),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 5.0),
-                        child:
-                        Container(
-                          height: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: TextFormField(
-                            controller: sr,
-                            decoration: InputDecoration(
-                                filled: true,
-                                fillColor: Colors.white54,
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:  textColorActive,
-                                      width: 0.5,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10)
-                                ),
-                                suffixIcon:IconButton(
-                                  icon:Icon(Icons.search),
-                                  onPressed: (){
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          _keyDrawer.currentState?.openEndDrawer();
+                        },
+                          child: Icon(Icons.menu,size: 40, color: itemColor,)),
+                      SizedBox(width: 5,),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 5.0),
+                          child:
+                          Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: TextFormField(
+                              controller: sr,
+                              decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: Colors.white54,
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color:  textColorActive,
+                                        width: 0.5,
+                                      ),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                  suffixIcon:IconButton(
+                                    icon:Icon(Icons.search),
+                                    onPressed: (){
 
-                                  },
-                                ),
-                                label: Text('بحث',style: TextStyle(fontSize: 16,color: textColorActive,fontFamily: 'reg'),)
+                                    },
+                                  ),
+                                  label: Text('بحث',style: TextStyle(fontSize: 16,color: textColorActive,fontFamily: 'reg'),)
+                              ),
                             ),
                           ),
-                        ),
 
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 140,
-              child:ListView.builder(
-                itemCount: myArray_cat.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (BuildContext context , int index){
-                  return
-                  SingleCategory(
-                      cat_id: myArray_cat[index]["cat_id"].toString(),
-                      cat_image:myArray_cat[index]["cat_image"].toString(),
-                      cat_name: myArray_cat[index]["cat_name"].toString());
-                }),
-      ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 400,
-              child:ListView.builder(
-                  itemCount: myArray_rest.length,
-                  scrollDirection: Axis.vertical,
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 140,
+                child:ListView.builder(
+                  itemCount: myArray_cat.length,
+                  scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context , int index){
                     return
-                      SingleRest(
-                        rest_id: myArray_rest[index]["rest_id"].toString(),
-                        rest_name:  myArray_rest[index]["rest_name"].toString(),
-                        rest_dec: myArray_rest[index]["rest_dec"].toString(),
-                        rest_image: myArray_rest[index]["rest_image"].toString(),);
+                    SingleCategory(
+                        cat_id: myArray_cat[index]["cat_id"].toString(),
+                        cat_image:myArray_cat[index]["cat_image"].toString(),
+                        cat_name: myArray_cat[index]["cat_name"].toString());
                   }),
-            ),
+      ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 400,
+                child:ListView.builder(
+                    itemCount: myArray_rest.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context , int index){
+                      return
+                        SingleRest(
+                          rest_id: myArray_rest[index]["rest_id"].toString(),
+                          rest_name:  myArray_rest[index]["rest_name"].toString(),
+                          rest_dec: myArray_rest[index]["rest_dec"].toString(),
+                          rest_image: myArray_rest[index]["rest_image"].toString(),);
+                    }),
+              ),
 
       ],
     ),
+        ),
     ),
 
 

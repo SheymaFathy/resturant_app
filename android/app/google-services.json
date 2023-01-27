@@ -12,25 +12,34 @@
           "package_name": "com.example.resturants"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "422368990610-rdk1l9usdqugjckvdh0nmifn43fllae3.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC5116hdkWWP5_UtBUDxZQc6yqkI8MKA-0"
+          "current_key": "AIzaSyAHoPcxOAz_v4CcA8sxfP4j9aLhEEqv8NE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "422368990610-rdk1l9usdqugjckvdh0nmifn43fllae3.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:422368990610:android:50ff6871e39e1792139d4b",
+        "android_client_info": {
+          "package_name": "com.example.resturants_admin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHoPcxOAz_v4CcA8sxfP4j9aLhEEqv8NE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }
