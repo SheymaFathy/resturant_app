@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:resturants/account/userSignin.dart';
-import 'package:resturants/startScreens/splashScreen.dart';
 import 'package:resturants/startScreens/start.dart';
 
 Color mainColor = Color(0xff0a8791);
@@ -27,7 +25,7 @@ class resturantApp extends StatelessWidget{
       theme: ThemeData(
 
       ),
-      home: splashScreen(),
+      home: StartPage(),
     );
   }
 }

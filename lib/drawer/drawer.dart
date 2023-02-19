@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:resturants/main.dart';
+import 'package:resturants/user/food.dart';
+
+import '../user/homePage.dart';
+import '../user/userLocation.dart';
 class myDrawer extends StatefulWidget {
 
 
@@ -21,10 +25,10 @@ class _myDrawerState extends State<myDrawer> {
                   UserAccountsDrawerHeader(
                     accountName: Column(
                       children: [
-                        SizedBox(height: 20,),
+                        SizedBox(height: 15,),
                         Text(
                           "فريدة",
-                          style: TextStyle(color:textColorActive, fontSize: 17.0, fontFamily: 'reg'),
+                          style: TextStyle(color:textColorActive, fontSize: 15.0, fontFamily: 'reg'),
                         ),
                       ],
                     ),
@@ -48,7 +52,7 @@ class _myDrawerState extends State<myDrawer> {
                     child: Column(
                       children: <Widget>[
                         InkWell(
-                          onTap: () {},
+                          onTap: () {   Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));},
                           child: ListTile(
                             title: Text(
                               "الصفحة الرئيسية",
@@ -75,29 +79,7 @@ class _myDrawerState extends State<myDrawer> {
                     padding: EdgeInsets.only(right: 10.0, left: 10.0),
                     child: Column(
                       children: <Widget>[
-                        InkWell(
-                          onTap: () {
 
-                          },
-                          child: ListTile(
-                            title: Text(
-                              "قائمة التصنيفات",
-                              style: TextStyle(color:textColorActive, fontSize: 17.0, fontFamily: 'reg'),
-                            ),
-                            leading: Icon(
-                              Icons.category,
-                              color: itemColor,
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.black,
-                              size: 18.0,
-                            ),
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.grey[500],
-                        ),
                       ],
                     ),
                   ),
@@ -182,8 +164,7 @@ class _myDrawerState extends State<myDrawer> {
                       children:[
                         InkWell(
                           onTap: () {
-
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
                           },
                           child: ListTile(
                             title: Text(
@@ -214,7 +195,7 @@ class _myDrawerState extends State<myDrawer> {
                         InkWell(
                           onTap: () {
 
-
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Food()));
                           },
                           child: ListTile(
                             title: Text(
@@ -246,7 +227,7 @@ class _myDrawerState extends State<myDrawer> {
                         InkWell(
                           onTap: () {
 
-
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> GetLocation(x: ,y: ,)));
                           },
                           child: ListTile(
                             title: Text(

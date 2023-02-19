@@ -137,14 +137,19 @@ class _adminSignInInState extends State<adminSignIn> {
                                     fontFamily: 'reg'),),
                               onPressed:() async {
                                 var formdata = formstate.currentState;
-                                if (formdata!.validate()) {;
-                                var adminAccount = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                                    email: n1.text,
-                                    password: n2.text);
-                                if(adminAccount != null){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>AdminPanal()));
-                                }
-
+                                if (formdata!.validate()) {
+                                  await FirebaseAuth.instance
+                                      .signInWithEmailAndPassword(
+                                      email: n1.text, password: n2.text);
+                                  print(FirebaseAuth.instance.currentUser);
+                                  if (FirebaseAuth.instance.currentUser!.uid !=
+                                      null) {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => AdminPanal(),
+                                        ));
+                                  }
                                 }
                               }
                           ),

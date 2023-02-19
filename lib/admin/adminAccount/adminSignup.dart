@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:resturants/admin/admin.dart';
 import '../../main.dart';
+import '../../user/homePage.dart';
 import 'adminSignin.dart';
 
 
@@ -22,27 +24,13 @@ class _adminSignUpState extends State<adminSignUp> {
   var username, myEmail, myPassword;
   GlobalKey<FormState> formstate = new GlobalKey<FormState>();
 
-signUp()async{
-  var formsdata = formstate.currentState;
-  if(formsdata!.validate()){
-    formsdata.save();
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: myEmail,
-          password: myPassword,
-      );
-      return userCredential;
-    } on FirebaseAuthException catch (e) {
-
-    } catch (e) {
-      print(e);
-    }
-
-  }else{
-    print("not valid");
+  Future signUp()async{
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email:emailController.text, password:passwordController.text);
   }
-}
-
+  void openHomePage(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +72,7 @@ signUp()async{
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextFormField(
+                      controller: usernameController,
                       onSaved: (val){
                         username = val;
                       },
@@ -117,7 +106,7 @@ signUp()async{
                     ),
                     SizedBox(height: 20,),
                     TextFormField(
-                      // controller: s2,
+                       controller: emailController,
                       onSaved: (val){
                         myEmail = val;
                       },
@@ -147,7 +136,7 @@ signUp()async{
                     ),
                     SizedBox(height: 20,),
                     TextFormField(
-                      // controller: s3,
+                       controller: passwordController,
                       onSaved: (val){
                         myPassword = val;
                       },
@@ -207,20 +196,25 @@ signUp()async{
                                 color: Colors.white,
                                 fontWeight: FontWeight.w500),),
                         onPressed:() async {
-                          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                            email: myEmail,
-                            password: myPassword,
-                          );
-                         print(("========================================"));
+                       var formdata = formstate.currentState;
+                           if (formdata!.validate()) {
+                             try {
+                               var user = await FirebaseAuth.instance
+                                   .createUserWithEmailAndPassword(
+                                   email: emailController.text, password: passwordController.text);
+                               if (user != null) {
+                                 print("erroooooooooooor");
+                               }
+                               Navigator.push(
+                                   context,
+                                   MaterialPageRoute(
+                                       builder: (context) => AdminPanal()));
+                             } catch (e) {
+                               print(e);
+                             }
+                           }
 
-                         print(("========================================"));
-
-
-
-
-
-
-                        },
+                       }
                       ),
                     ),
                    //  SizedBox(height: 10,),

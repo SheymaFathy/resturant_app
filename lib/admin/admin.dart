@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../categories/category.dart';
 import '../drawer/drawer.dart';
+import '../main.dart';
 import 'addDrink.dart';
 import 'addMeal.dart';
 import 'add_resturant.dart';
+import 'adminAccount/addCategory.dart';
 import 'fastFood.dart';
 
 class AdminPanal extends StatefulWidget {
@@ -12,10 +13,7 @@ class AdminPanal extends StatefulWidget {
 }
 
 class _AdminPanalState extends State<AdminPanal> {
-  Color mainColor = Color(0xff0a8791);
-  Color textColorActive = Color(0xff0e122b);
-  Color textColor = Color(0xffc2c2cb);
-  Color itemColor = Color(0xfffba83c);
+
   @override
   Widget build(BuildContext context) {
     return Directionality(textDirection: TextDirection.rtl, child:Scaffold(
@@ -39,7 +37,7 @@ class _AdminPanalState extends State<AdminPanal> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => MyCategory()));
+                                      builder: (context) => addCategory()));
                             },
                             child: Container(
                               margin: EdgeInsets.all(5.0),

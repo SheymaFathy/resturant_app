@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../main.dart';
 import 'admin.dart';
 class AddMeal extends StatefulWidget {
   const AddMeal({super.key});
@@ -15,10 +16,7 @@ class AddMeal extends StatefulWidget {
 }
 
 class _AddMealState extends State<AddMeal> {
-  Color mainColor = Color(0xff0a8791);
-  Color textColorActive = Color(0xff0e122b);
-  Color textColor = Color(0xffc2c2cb);
-  Color itemColor = Color(0xfffba83c);
+
   TextEditingController add1 = new TextEditingController();
   TextEditingController add2 = new TextEditingController();
   TextEditingController add3 = new TextEditingController();
